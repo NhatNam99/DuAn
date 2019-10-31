@@ -1,21 +1,23 @@
 package vn.edu.poly.testduan2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
+
+import android.content.Intent;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import vn.edu.poly.testduan2.model.MilkTea;
-import vn.edu.poly.testduan2.sqliteDAO.MilkTeaDAO;
+public class MilkTeaProductDetailActivity extends AppCompatActivity implements View.OnClickListener {
 
-public class MilkTeaProductDetailActivity extends AppCompatActivity {
-
-    MilkTeaDAO milkTeaDAO;
     TextView tvType, tvName, tvPrice1, tvPrice2, tvTopping;
     ImageView imageMilkTea;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,18 +25,27 @@ public class MilkTeaProductDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product_detail);
         viewId();
 
-        milkTeaDAO = new MilkTeaDAO(this);
-        byte imgae = getIntent().getExtras().getByte("ImageMilkTea");
-        MilkTea milkTea = new MilkTea();
-        milkTea = milkTeaDAO.Image(imgae);
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Thông tin món ăn");
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.back);
+        toolbar.setNavigationOnClickListener(this);
 
-        Bitmap bmHinhDaiDien = BitmapFactory.decodeByteArray(milkTea.getImgMilk(), 0, milkTea.getImgMilk().length);
-        imageMilkTea.setImageBitmap(bmHinhDaiDien);
-        tvType.setText(milkTea.getType().toString());
-        tvName.setText(milkTea.getTitle().toString());
-        tvPrice1.setText(String.valueOf(milkTea.getPrice1()));
-        tvPrice2.setText(String.valueOf(milkTea.getPrice2()));
-        tvTopping.setText(milkTea.getTopping().toString());
+        Intent intent = getIntent();
+        byte[] Image = getIntent().getByteArrayExtra("ImageMilkTea");
+        Bitmap bitmap = BitmapFactory.decodeByteArray(Image, 0, Image.length);
+        String Type = intent.getExtras().getString("Type");
+        String Name = intent.getExtras().getString("TitleMilkTea");
+        int Price1 = intent.getExtras().getInt("Price1");
+        int Price2 = intent.getExtras().getInt("Price2");
+        String Topping = intent.getExtras().getString("Topping");
+
+        imageMilkTea.setImageBitmap(bitmap);
+        tvType.setText(Type);
+        tvName.setText(Name);
+        tvPrice1.setText(String.valueOf(Price1) + " VNĐ") ;
+        tvPrice2.setText(String.valueOf(Price2) + " VNĐ");
+        tvTopping.setText(Topping);
     }
 
     public void viewId(){
@@ -43,5 +54,11 @@ public class MilkTeaProductDetailActivity extends AppCompatActivity {
         tvPrice1 = findViewById(R.id.price1);
         tvPrice2 = findViewById(R.id.price2);
         tvTopping = findViewById(R.id.topping);
+        imageMilkTea= findViewById(R.id.image_product);
+    }
+
+    @Override
+    public void onClick(View view) {
+        finish();
     }
 }

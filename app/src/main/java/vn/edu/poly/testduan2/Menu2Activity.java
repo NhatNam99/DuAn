@@ -17,8 +17,11 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import vn.edu.poly.testduan2.fragment.BreadFragment;
+import vn.edu.poly.testduan2.fragment.BreadFragmentMenu2;
 import vn.edu.poly.testduan2.fragment.FruitFragment;
+import vn.edu.poly.testduan2.fragment.FruitFragmentMenu2;
 import vn.edu.poly.testduan2.fragment.MilkTeaFragment;
+import vn.edu.poly.testduan2.fragment.MilkTeaFragmentMenu2;
 
 public class Menu2Activity extends AppCompatActivity {
 
@@ -30,13 +33,13 @@ public class Menu2Activity extends AppCompatActivity {
             Fragment selectedFragment = null;
             switch (item.getItemId()) {
                 case R.id.navigation_milk_tea:
-                    selectedFragment = new MilkTeaFragment();
+                    selectedFragment = new MilkTeaFragmentMenu2();
                     break;
                 case R.id.navigation_fruit:
-                    selectedFragment = new FruitFragment();
+                    selectedFragment = new FruitFragmentMenu2();
                     break;
                 case R.id.navigation_bread:
-                    selectedFragment = new BreadFragment();
+                    selectedFragment = new BreadFragmentMenu2();
                     break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
@@ -52,7 +55,7 @@ public class Menu2Activity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MilkTeaFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MilkTeaFragmentMenu2()).commit();
     }
 
     @Override
@@ -67,8 +70,7 @@ public class Menu2Activity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_list) {
-            Intent intent = new Intent(this, AddProductActivity.class);
-            startActivity(intent);
+
         }
         if (id == R.id.action_logout){
             final AlertDialog.Builder builder = new AlertDialog.Builder(this);

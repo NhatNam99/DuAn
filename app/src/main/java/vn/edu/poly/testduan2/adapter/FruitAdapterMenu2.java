@@ -21,16 +21,15 @@ import java.util.List;
 import vn.edu.poly.testduan2.FruitProductDetailActivity;
 import vn.edu.poly.testduan2.MilkTeaProductDetailActivity;
 import vn.edu.poly.testduan2.R;
-
 import vn.edu.poly.testduan2.model.Fruit;
 
-public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder>  {
+public class FruitAdapterMenu2 extends RecyclerView.Adapter<FruitAdapterMenu2.ViewHolder>  {
 
     List<Fruit> list;
     Context context;
     int resource;
 
-    public FruitAdapter(@NonNull Context context, int resource, @NonNull List<Fruit> lsFruit) {
+    public FruitAdapterMenu2(@NonNull Context context, int resource, @NonNull List<Fruit> lsFruit) {
         this.context = context;
         this.resource = resource;
         this.list = lsFruit;
@@ -94,21 +93,7 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> 
             imgAnh = itemView.findViewById(R.id.imgFruit);
             tvTen = itemView.findViewById(R.id.tvFruit);
             cardView = itemView.findViewById(R.id.cardFruit);
-
-            imgAnh.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View view) {
-                    DialogFunction();
-                    return false;
-                }
-            });
         }
     }
 
-    private void DialogFunction() {
-        Dialog dialog = new Dialog(context);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.custom_dialog);
-        dialog.show();
-    }
 }

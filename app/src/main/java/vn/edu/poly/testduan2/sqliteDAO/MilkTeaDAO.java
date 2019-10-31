@@ -49,14 +49,9 @@ public class MilkTeaDAO implements Constant {
         return sqLiteDatabase.update(TABLE_MILK_TEA, contentValues, COLUMN_NAME_MILK_TEA + "=?", new String[]{String.valueOf(milkTea.getTitle())});
     }
 
-    public boolean delete(MilkTea milkTea) {
+    public int delete(MilkTea milkTea) {
         SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
-        int check = sqLiteDatabase.delete(TABLE_MILK_TEA, COLUMN_NAME_MILK_TEA + " = " + milkTea.getTitle(), null);
-        if (check != 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return sqLiteDatabase.delete(TABLE_MILK_TEA, COLUMN_NAME_MILK_TEA +"=?",new String[]{String.valueOf(milkTea.getTitle())});
     }
 
     public List<MilkTea> getAllMilkTea() {
@@ -86,7 +81,7 @@ public class MilkTeaDAO implements Constant {
     public MilkTea Image(byte image){
         SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
 
-        String sql = "SELECT * FROM " + databaseHelper.TABLE_MILK_TEA + " WHERE " + databaseHelper.COLUMN_NAME_MILK_TEA + " = " + image;
+        String sql = "SELECT * FROM " + databaseHelper.TABLE_MILK_TEA + " WHERE " + databaseHelper.COLUMN_IMAGE_MILK_TEA + image;
         Cursor cursor = sqLiteDatabase.rawQuery(sql, null);
         cursor.moveToFirst();
         MilkTea milkTea = new MilkTea();

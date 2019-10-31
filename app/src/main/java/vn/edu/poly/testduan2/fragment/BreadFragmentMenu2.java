@@ -17,15 +17,15 @@ import java.util.List;
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
 import vn.edu.poly.testduan2.R;
 import vn.edu.poly.testduan2.adapter.BreadAdapter;
-import vn.edu.poly.testduan2.adapter.MilkTeaAdapter;
+import vn.edu.poly.testduan2.adapter.BreadAdapterMenu2;
 import vn.edu.poly.testduan2.model.Bread;
 import vn.edu.poly.testduan2.sqliteDAO.BreadDAO;
 
-public class BreadFragment extends Fragment {
+public class BreadFragmentMenu2 extends Fragment {
 
     List<Bread> lsBread;
     RecyclerView listBread;
-    BreadAdapter breadAdapter;
+    BreadAdapterMenu2 breadAdapterMenu2;
     BreadDAO breadDAO;
 
     @Nullable
@@ -42,9 +42,9 @@ public class BreadFragment extends Fragment {
 
         lsBread = new ArrayList<Bread>();
         lsBread = breadDAO.getAllBread();
-        breadAdapter = new BreadAdapter(getContext(), R.layout.content_main, lsBread);
+        breadAdapterMenu2 = new BreadAdapterMenu2(getContext(), R.layout.content_main, lsBread);
         RecyclerView lsBread = view.findViewById(R.id.lsBread);
-        lsBread.setAdapter(breadAdapter);
+        lsBread.setAdapter(breadAdapterMenu2);
         RecyclerView.LayoutManager manager = new GridLayoutManager(getContext(), 3);
         lsBread.setLayoutManager(manager);
         return view;

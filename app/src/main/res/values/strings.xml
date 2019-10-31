@@ -58,4 +58,8 @@
     <string name="tvForgetPass">Quên mật khẩu ?</string>
     <string name="tvType">Loại:</string>
     <string name="tvname">Tên:</string>
+    <string name="tvtitle">Chức năng:</string>
+    <string name="tvUpdate">Cập nhật thông tin sản phẩm</string>
+    <string name="tvDelete">Xóa thông tin sản phẩm</string>
+    <string name="btnUpdate">Cập nhật</string>
 </resources>

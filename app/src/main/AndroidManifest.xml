@@ -14,8 +14,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MilkTeaProductDetailActivity"></activity>
-        <activity android:name=".UpdateActivity" />
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar2">
@@ -31,20 +29,38 @@
             android:name=".MenuActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar2" />
+
         <activity
             android:name=".ListBillActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".UpdateActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity
             android:name=".AddProductActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".MilkTeaProductDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".BreadProductDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".FruitProductDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity
             android:name=".Menu2Activity"
             android:label="@string/title_activity_menu2"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".image.ImagePickerActivity" /> <!-- uCrop cropping activity -->
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"

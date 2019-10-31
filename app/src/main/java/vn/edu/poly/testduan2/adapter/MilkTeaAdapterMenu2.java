@@ -18,45 +18,43 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import vn.edu.poly.testduan2.FruitProductDetailActivity;
 import vn.edu.poly.testduan2.MilkTeaProductDetailActivity;
 import vn.edu.poly.testduan2.R;
+import vn.edu.poly.testduan2.model.MilkTea;
 
-import vn.edu.poly.testduan2.model.Fruit;
+public class MilkTeaAdapterMenu2 extends RecyclerView.Adapter<MilkTeaAdapterMenu2.ViewHolder> {
 
-public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder>  {
-
-    List<Fruit> list;
+    List<MilkTea> list;
     Context context;
     int resource;
 
-    public FruitAdapter(@NonNull Context context, int resource, @NonNull List<Fruit> lsFruit) {
+    public MilkTeaAdapterMenu2(@NonNull Context context, int resource, @NonNull List<MilkTea> lsMilkt) {
         this.context = context;
         this.resource = resource;
-        this.list = lsFruit;
+        this.list = lsMilkt;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View itemView = inflater.inflate(R.layout.item_fruit, parent, false);
+        View itemView = inflater.inflate(R.layout.item_milk_tea, parent, false);
         return new ViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        Fruit fruit = list.get(position);
-        Bitmap bmHinhDaiDien = BitmapFactory.decodeByteArray(fruit.getImgFruit(), 0, fruit.getImgFruit().length);
+        MilkTea milkTea = list.get(position);
+        Bitmap bmHinhDaiDien = BitmapFactory.decodeByteArray(milkTea.getImgMilk(), 0, milkTea.getImgMilk().length);
         holder.imgAnh.setImageBitmap(bmHinhDaiDien);
-        holder.tvTen.setText(fruit.getTitle());
+        holder.tvTen.setText(milkTea.getTitle());
         holder.imgAnh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, FruitProductDetailActivity.class);
-                intent.putExtra("ImageFruit", list.get(position).getImgFruit());
+                Intent intent = new Intent(context, MilkTeaProductDetailActivity.class);
+                intent.putExtra("ImageMilkTea", list.get(position).getImgMilk());
                 intent.putExtra("Type", list.get(position).getType());
-                intent.putExtra("TitleFruit", list.get(position).getTitle());
+                intent.putExtra("TitleMilkTea", list.get(position).getTitle());
                 intent.putExtra("Price1", list.get(position).getPrice1());
                 intent.putExtra("Price2", list.get(position).getPrice2());
                 intent.putExtra("Topping", list.get(position).getTopping());
@@ -67,10 +65,10 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, FruitProductDetailActivity.class);
-                intent.putExtra("ImageFruit", list.get(position).getImgFruit());
+                Intent intent = new Intent(context, MilkTeaProductDetailActivity.class);
+                intent.putExtra("ImageMilkTea", list.get(position).getImgMilk());
                 intent.putExtra("Type", list.get(position).getType());
-                intent.putExtra("TitleFruit", list.get(position).getTitle());
+                intent.putExtra("TitleMilkTea", list.get(position).getTitle());
                 intent.putExtra("Price1", list.get(position).getPrice1());
                 intent.putExtra("Price2", list.get(position).getPrice2());
                 intent.putExtra("Topping", list.get(position).getTopping());
@@ -84,31 +82,18 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> 
         return list.size();
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView imgAnh;
         public TextView tvTen;
         CardView cardView;
 
+
         public ViewHolder(View itemView) {
             super(itemView);
-            imgAnh = itemView.findViewById(R.id.imgFruit);
-            tvTen = itemView.findViewById(R.id.tvFruit);
-            cardView = itemView.findViewById(R.id.cardFruit);
-
-            imgAnh.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View view) {
-                    DialogFunction();
-                    return false;
-                }
-            });
+            imgAnh = itemView.findViewById(R.id.imgMilk);
+            tvTen = itemView.findViewById(R.id.tvMilk);
+            cardView = itemView.findViewById(R.id.cardMilk);
         }
-    }
-
-    private void DialogFunction() {
-        Dialog dialog = new Dialog(context);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.custom_dialog);
-        dialog.show();
     }
 }

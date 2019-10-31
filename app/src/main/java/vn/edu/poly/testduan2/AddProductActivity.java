@@ -7,7 +7,7 @@ import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,14 +25,10 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.edu.poly.testduan2.fragment.BreadFragment;
-import vn.edu.poly.testduan2.fragment.FruitFragment;
-import vn.edu.poly.testduan2.fragment.MilkTeaFragment;
 import vn.edu.poly.testduan2.image.ImagePickerActivity;
 import vn.edu.poly.testduan2.model.Bread;
 import vn.edu.poly.testduan2.model.Fruit;
