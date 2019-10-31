@@ -42,6 +42,18 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_update);
         viewID();
 
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Sửa thông tin món ăn");
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.back);
+        toolbar.setNavigationOnClickListener(this);
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     @Override
