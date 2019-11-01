@@ -191,14 +191,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal"
         android:gravity="center">
 
         <Button
             android:id="@+id/btnAddProduct"
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
             android:background="@color/btnAdd"
             android:elevation="10dp"
             android:text="@string/btnAdd"
@@ -208,8 +209,8 @@
         <Button
             android:id="@+id/btnCancelAdd"
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="30dp"
             android:background="@color/btnCancel"
             android:elevation="10dp"

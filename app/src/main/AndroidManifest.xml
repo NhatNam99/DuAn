@@ -39,14 +39,14 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity android:name=".UpdateActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar2"/>
 
         <activity
             android:name=".AddProductActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar2" />
 
         <activity android:name=".MilkTeaProductDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar2"/>
 
         <activity android:name=".BreadProductDetailActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
